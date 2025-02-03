@@ -36,3 +36,18 @@ def boxplotter (df):
         ax.set_ylabel('Values')
     plt.tight_layout()
     plt.show()
+    
+    
+    
+def ShotQualifier(row):
+    if row['Shot Bins'] in ['Dunk','Layup'] and row['Openness'] in['Left Alone','Open']:
+        return 'High Quality Shot'
+    elif row['Shot Bins'] in ['Midrange','Three Pointer'] and row['Openness']=='Left Alone':
+        return 'High Quality Shot'
+    elif row['Shot Bins'] in['Midrange','Long Two','Three Pointer'] and row['Openness']=='Open':
+        return 'Decent Quality Shot'
+    elif row['Shot Bins'] in ['Dunk','Layup'] and row['Openness']=='Contested':
+        return 'Decent Quality Shot'
+    else:
+        return 'Low Quality Shot'
+
